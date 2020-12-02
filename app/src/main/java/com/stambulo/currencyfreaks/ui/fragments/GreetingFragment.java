@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -59,6 +60,7 @@ public class GreetingFragment extends MvpAppCompatFragment implements View.OnCli
 
     @Override
     public void onClick(View view) {
+        Toast.makeText(getContext(), "<--- Button --->", Toast.LENGTH_SHORT).show();
     }
 
     @Override
