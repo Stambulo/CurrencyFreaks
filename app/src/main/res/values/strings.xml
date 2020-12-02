@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Currency Freaks</string>
+    <string name="welcome_text">Welcome to CurrencyFreaks</string>
+    <string name="Entrance">Entrance</string>
+</resources>
