@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Currency Freaks</string>
-    <string name="welcome_text">Welcome to CurrencyFreaks</string>
-    <string name="Entrance">Entrance</string>
+    <string name="welcome_text">Welcome to CurrencyFreaks.com</string>
+    <string name="Entrance">Show All Currencies</string>
+    <string name="equals">=</string>
+    <string name="base_currency">1   USD</string>
+    <string name="target_currency">ZZZ</string>
+    <string name="target_currency_rate">0.00</string>
 </resources>

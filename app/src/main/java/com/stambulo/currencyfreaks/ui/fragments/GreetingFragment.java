@@ -1,18 +1,15 @@
 package com.stambulo.currencyfreaks.ui.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.stambulo.currencyfreaks.R;
 import com.stambulo.currencyfreaks.mvp.presenter.GreetingPresenter;
@@ -24,7 +21,7 @@ import moxy.presenter.InjectPresenter;
 
 public class GreetingFragment extends MvpAppCompatFragment implements View.OnClickListener, GreetingView, BackButtonListener {
     private TextView tv_greeting;
-    private Button btn_entrance;
+    private Button btn_all_currencies;
     private ImageView dollar_image;
     private View view;
 
@@ -53,14 +50,14 @@ public class GreetingFragment extends MvpAppCompatFragment implements View.OnCli
         view = inflater.inflate(R.layout.fragment_greetings, container, false);
         tv_greeting = view.findViewById(R.id.welcome_text);
         dollar_image = view.findViewById(R.id.imageView);
-        btn_entrance = view.findViewById(R.id.btn_entrance);
-        btn_entrance.setOnClickListener(this);
+        btn_all_currencies = view.findViewById(R.id.btn_all_currencies);
+        btn_all_currencies.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(getContext(), "<--- Button --->", Toast.LENGTH_SHORT).show();
+        greetingPresenter.showCurrencies();
     }
 
     @Override

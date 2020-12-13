@@ -7,6 +7,7 @@ import com.stambulo.currencyfreaks.navigation.Screens;
 
 import javax.inject.Inject;
 
+import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;
 
 public class MainPresenter extends MvpPresenter<MainView> {
@@ -25,5 +26,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
         router.replaceScreen(new Screens.GreetingScreen());
     }
 
-    public void backClicked() {router.exit();}
+    public void backClicked() {
+        router.exit();
+    }
 }

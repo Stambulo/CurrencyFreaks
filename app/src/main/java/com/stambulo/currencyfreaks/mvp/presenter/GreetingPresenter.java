@@ -2,6 +2,7 @@ package com.stambulo.currencyfreaks.mvp.presenter;
 
 import com.stambulo.currencyfreaks.CFreaksApplication;
 import com.stambulo.currencyfreaks.mvp.view.GreetingView;
+import com.stambulo.currencyfreaks.navigation.Screens;
 
 import javax.inject.Inject;
 
@@ -21,6 +22,10 @@ public class GreetingPresenter extends MvpPresenter<GreetingView> {
     protected void onFirstViewAttach() {
         super.onFirstViewAttach();
         getViewState().init();
+    }
+
+    public void showCurrencies() {
+        router.replaceScreen(new Screens.CurrenciesScreen());
     }
 
     public boolean backPressed() {
