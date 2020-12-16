@@ -7,7 +7,7 @@ import com.stambulo.currencyfreaks.mvp.model.CurrencyRetrofit;
 import com.stambulo.currencyfreaks.mvp.model.IRates;
 import com.stambulo.currencyfreaks.mvp.presenter.list.IRateListPresenter;
 import com.stambulo.currencyfreaks.mvp.view.CurrenciesView;
-import com.stambulo.currencyfreaks.mvp.view.list.AllCurrencyItemView;
+import com.stambulo.currencyfreaks.mvp.view.list.CurrencyItemView;
 import com.stambulo.currencyfreaks.navigation.Screens;
 
 import java.util.LinkedHashMap;
@@ -15,6 +15,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import moxy.MvpPresenter;
 import ru.terrakok.cicerone.Router;
 
@@ -33,17 +34,17 @@ public class CurrenciesPresenter extends MvpPresenter<CurrenciesView> {
         private Map<String, String> ratesMap = new LinkedHashMap<>();
 
         @Override
-        public void onItemClick(AllCurrencyItemView view) {
+        public void onItemClick(CurrencyItemView view) {
+            getViewState().updateData();
         }
 
         @Override
-        public void bindView(AllCurrencyItemView view) {
+        public void bindView(CurrencyItemView view) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//            Log.i("--->", "bindView: " + ratesMap.get("RUB"));
             switch (view.getPos()) {
                 case 0:
                     view.setCurrencyRate(ratesMap.get("RUB"));
@@ -62,7 +63,6 @@ public class CurrenciesPresenter extends MvpPresenter<CurrenciesView> {
                     view.setCurrencyName("GBP");
                     break;
             }
-//            Log.i("--->", "Size: " + ratesMap.size());
         }
 
         @Override
@@ -86,14 +86,9 @@ public class CurrenciesPresenter extends MvpPresenter<CurrenciesView> {
     }
 
     private void loadData() {
-        rates.getRates().subscribe(freshRates -> {
+        rates.getRates().observeOn(Schedulers.io()).subscribe(freshRates -> {
             ratesListPresenter.ratesMap.clear();
             ratesListPresenter.ratesMap = freshRates.getRates().getCurrenciesMap();
-
-//            Log.i("--->", "RUB - " + freshRates.getRates().getRUB());
-//            Log.i("--->", "CNY - " + freshRates.getRates().getCNY());
-//            Log.i("--->", "EUR - " + freshRates.getRates().getEUR());
-//            Log.i("--->", "GBP - " + freshRates.getRates().getGBP());
             Thread.sleep(2000);
 /**
  *      Здесь проблема !!!

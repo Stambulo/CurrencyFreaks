@@ -1,16 +1,19 @@
 package com.stambulo.currencyfreaks.mvp.model.entity;
 
 import com.google.gson.annotations.Expose;
-import com.stambulo.currencyfreaks.mvp.model.IRates;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class CurrenciesArray {
-    @Expose private String RUB;
-    @Expose private String CNY;
-    @Expose private String GBP;
-    @Expose private String EUR;
+    @Expose
+    private String RUB;
+    @Expose
+    private String CNY;
+    @Expose
+    private String GBP;
+    @Expose
+    private String EUR;
 
     private Map<String,String> currenciesMap = new LinkedHashMap<String, String>();
     public Map<String, String> getCurrenciesMap(){

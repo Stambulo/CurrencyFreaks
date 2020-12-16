@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.stambulo.currencyfreaks.R;
 import com.stambulo.currencyfreaks.mvp.presenter.list.IRateListPresenter;
-import com.stambulo.currencyfreaks.mvp.view.list.AllCurrencyItemView;
+import com.stambulo.currencyfreaks.mvp.view.list.CurrencyItemView;
 
 public class AllRVAdapter extends RecyclerView.Adapter<AllRVAdapter.ViewHolder> {
     private IRateListPresenter presenter;
@@ -43,7 +43,7 @@ public class AllRVAdapter extends RecyclerView.Adapter<AllRVAdapter.ViewHolder> 
         return presenter.getCount();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements AllCurrencyItemView {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements CurrencyItemView {
         TextView tv_currency_rate;
         TextView tv_currency_name;
         int position;

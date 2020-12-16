@@ -1,6 +1,7 @@
 package com.stambulo.currencyfreaks.ui.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.stambulo.currencyfreaks.ui.adapter.AllRVAdapter;
 
 import moxy.MvpAppCompatFragment;
 import moxy.presenter.InjectPresenter;
+import moxy.presenter.ProvidePresenter;
 
 public class CurrenciesFragment extends MvpAppCompatFragment implements CurrenciesView, BackButtonListener {
     private RecyclerView.LayoutManager layoutManager;
@@ -68,6 +70,7 @@ public class CurrenciesFragment extends MvpAppCompatFragment implements Currenci
             e.printStackTrace();
         }
         adapter.notifyDataSetChanged();
+        Log.i("--->", "updateData: ");
     }
 
     @Override
