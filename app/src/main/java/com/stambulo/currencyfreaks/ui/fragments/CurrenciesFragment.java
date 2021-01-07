@@ -64,13 +64,7 @@ public class CurrenciesFragment extends MvpAppCompatFragment implements Currenci
 
     @Override
     public void updateData() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         adapter.notifyDataSetChanged();
-        Log.i("--->", "updateData: ");
     }
 
     @Override

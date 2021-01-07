@@ -3,6 +3,12 @@ package com.stambulo.currencyfreaks.mvp.model.entity.room;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+
+import com.stambulo.currencyfreaks.mvp.model.CurrencyRetrofit;
+
+import java.util.Map;
 
 @Entity
 public class RoomCurrencyRates {
@@ -11,19 +17,14 @@ public class RoomCurrencyRates {
     @NonNull
     public String base;
     public String data;
-    public String RUB;
-    public String CNY;
-    public String EUR;
-    public String GBP;
 
-    public RoomCurrencyRates(String data, String base,
-                             String RUB, String CNY, String EUR, String GBP){
+    @TypeConverters({RoomConverter.class})
+    public Map<String, String> rates;
+
+    public RoomCurrencyRates(String data, String base, Map<String, String> rates){
         this.data = data;
         this.base = base;
-        this.RUB = RUB;
-        this.CNY = CNY;
-        this.EUR = EUR;
-        this.GBP = GBP;
+        this.rates = rates;
     }
 
     @NonNull
@@ -35,19 +36,6 @@ public class RoomCurrencyRates {
         return base;
     }
 
-    public String getRUB() {
-        return RUB;
-    }
-
-    public String getCNY() {
-        return CNY;
-    }
-
-    public String getEUR() {
-        return EUR;
-    }
-
-    public String getGBP() {
-        return GBP;
-    }
+    public Map<String, String> getRates() {return rates; }
 }
+

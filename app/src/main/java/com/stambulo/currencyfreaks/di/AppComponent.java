@@ -3,6 +3,7 @@ package com.stambulo.currencyfreaks.di;
 import com.stambulo.currencyfreaks.MainActivity;
 import com.stambulo.currencyfreaks.di.module.AppModule;
 import com.stambulo.currencyfreaks.di.module.CiceroneModule;
+import com.stambulo.currencyfreaks.di.module.RatesRepositoryModule;
 import com.stambulo.currencyfreaks.mvp.presenter.CurrenciesPresenter;
 import com.stambulo.currencyfreaks.mvp.presenter.GreetingPresenter;
 import com.stambulo.currencyfreaks.mvp.presenter.MainPresenter;
@@ -14,7 +15,8 @@ import dagger.Component;
 @Component(
         modules = {
                 AppModule.class,
-                CiceroneModule.class
+                CiceroneModule.class,
+                RatesRepositoryModule.class
         }
 )
 

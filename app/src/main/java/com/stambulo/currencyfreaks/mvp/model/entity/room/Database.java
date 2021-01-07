@@ -2,10 +2,13 @@ package com.stambulo.currencyfreaks.mvp.model.entity.room;
 
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 
 import com.stambulo.currencyfreaks.CFreaksApplication;
 
 @androidx.room.Database(entities = {RoomCurrencyRates.class}, version = 1)
+@TypeConverters({RoomConverter.class})
 public abstract class Database extends RoomDatabase {
 
     private static final String DB_NAME = "database.db";

@@ -7,7 +7,8 @@ import retrofit2.http.GET;
 
 public interface IDataSource {
 
-    @GET("/latest?apikey=46da9210321740d89f2d7f7f5977d15f&symbols=RUB,CNY,EUR,GBP")
+//    @GET("/latest?apikey=46da9210321740d89f2d7f7f5977d15f&symbols=RUB,CNY,EUR,GBP")
+    @GET("/latest?apikey=46da9210321740d89f2d7f7f5977d15f")
     Single<ServerRequest> getRatesFromServer();
 }
 
