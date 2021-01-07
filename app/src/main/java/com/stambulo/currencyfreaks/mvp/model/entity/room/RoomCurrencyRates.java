@@ -38,4 +38,3 @@ public class RoomCurrencyRates {
 
     public Map<String, String> getRates() {return rates; }
 }
-

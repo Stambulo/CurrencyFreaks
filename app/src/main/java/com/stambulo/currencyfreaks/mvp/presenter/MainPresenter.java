@@ -39,12 +39,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
     }
 
     void getRates(){
-        rates.getRates().observeOn(Schedulers.io()).subscribe(freshRates -> {
-            ratesMap.clear();
-            ratesMap.putAll(freshRates.getRates());
-        }, (e) -> {
-            Log.w("--->", "Error in getData - " + e.getMessage());
-        });
+//        rates.getRates().observeOn(Schedulers.io()).subscribe(freshRates -> {
+//            ratesMap.clear();
+//            ratesMap.putAll(freshRates.getRates());
+//        }, (e) -> {
+//            Log.w("--->", "Error in getData - " + e.getMessage());
+//        });
     }
 
     public void backClicked() {
